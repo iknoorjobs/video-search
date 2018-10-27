@@ -1,0 +1,64 @@
+{% load embed_video_tags %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Video Search </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<center>
+		{% video my_video '1200x600' %}<br/>
+		<input type="text" id="searchbox"/><button id="search">Search</button>
+		<div id="times">
+		</div>
+	</center>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+<script type="text/javascript">
+	String.prototype.toHHMMSS = function () {
+    	var sec_num = parseInt(this, 10); // don't forget the second param
+    	var hours   = Math.floor(sec_num / 3600);
+    	var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+	    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+    	if (hours   < 10) {hours   = "0"+hours;}
+	    if (minutes < 10) {minutes = "0"+minutes;}
+    	if (seconds < 10) {seconds = "0"+seconds;}
+    	return hours+':'+minutes+':'+seconds;
+	}	
+
+
+	function httpGetAsync(theUrl) {
+    	var xmlHttp = new XMLHttpRequest();
+    	xmlHttp.onreadystatechange = function() { 
+        	if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            	console.log("OK");
+    	}
+    	xmlHttp.open("GET", theUrl.replace("&amp;", "&"), false); // true for asynchronous 
+    	xmlHttp.send();
+    	return xmlHttp.responseText
+	}
+	times_div = document.getElementById("times");
+	var cc = httpGetAsync("{{cc_url}}");
+	arr = cc.split("<text start=\"");
+	document.getElementById('search').addEventListener('click', function() {
+		times_div.innerHTML = ""
+		var string = document.getElementById("searchbox").value;
+		matches = [];
+		Array.prototype.forEach.call(arr, element => {
+  			if (element.indexOf(string)!=-1) {
+				time = parseInt(element.substr(0, element.indexOf("\"")));
+				
+				times_div.innerHTML = times_div.innerHTML +"<a href='https://www.youtube.com/watch?v={{vid_url}}&t="+ time +"'target='_blank'>" + ((""+time).toHHMMSS()) + "</a>" + "<br/>";
+			}
+		});
+	});
+</script>
+
+</html>

@@ -1,0 +1,258 @@
+@charset "utf-8";
+body{
+  background: #edf0f1;
+  padding: 300px 0 0 0;
+}
+
+body,input,button{
+  font-family: 'Roboto', sans-serif;
+}
+
+.nofill{
+  fill:none;
+}
+
+header {
+
+  height: 290px;
+  position: fixed;
+  padding: 15px;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  background: linear-gradient(-135deg,#c850c0,#4158d0);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(44,62,80,0.15);
+}
+header input{
+  width: 800px;
+
+  height: 50px;
+  font-size: 15px;
+  font-weight: 400;
+  text-indent: 18px;
+  float:left;
+
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+  border-top-right-radius:5px;
+  border-bottom-right-radius:5px;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+  margin: 6px;
+  margin-left: 210px;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  -ms-appearance:none;
+  -o-appearance:none;
+  appearance:none;
+
+}
+header input::-webkit-input-placeholder {
+  color: rgba(255,255,255,0.75);
+}
+
+header input:-moz-input-placeholder {
+  color: rgba(255,255,255,0.75);
+}
+
+header input::-moz-input-placeholder {
+  color: rgba(255,255,255,0.75);
+}
+
+header input:-ms-input-placeholder {
+  color: rgba(255,255,255,0.75);
+}
+
+header button{
+  width: 150px;
+  height: 50px;
+  position: absolute;
+  top:220px;
+  right: 550px;
+  z-index: 2;
+  border-radius: 25px;
+  background: #57b846;
+  color: #fff;
+  border:0px;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  -ms-appearance:none;
+  -o-appearance:none;
+  appearance:none;
+}
+
+header button svg{
+  width: 18px;
+  height: 18px;
+  float: left;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  margin:-8px 0 0 -8px;
+}
+
+header button svg .fill{
+  fill:#29B6F6;
+}
+
+.container{
+  width:100%;
+  padding-top: 20px;
+}
+
+ .card{
+   width: 100%;
+   border-radius: 5px;
+   box-shadow: 0px 2px 4px rgba(44,62,80,0.10);
+   margin-bottom: 10px;
+   border: 0px;
+   outline: none;
+
+ }
+
+.card-body{
+  position: relative;
+  padding-right: 128px;
+  font-size: 15px;
+  padding: 20px
+  color: #444;
+
+}
+
+.button{
+  width: 128px;
+  height: 64px;
+  right: 0;
+  top:0;
+  position: absolute;
+}
+
+.button button{
+  height: 64px;
+  width: 64px;
+  float: left;
+  background: none;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  -ms-appearance:none;
+  -o-appearance:none;
+  appearance:none;
+}
+
+.button button:last-of-type::before{
+  content: '';
+  width: 1px;
+  height: 35px;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  background: #edf0f1;
+}
+
+.button button svg .fill{
+  transition: fill 0.3s ease;
+}
+
+.button button svg{
+  height: 22px;
+  width: 22px;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  margin:-11px 0 0 -11px;
+}
+
+.button button.remove svg .fill{
+  fill:#C0CECB;
+}
+
+.button button.remove:hover svg .fill{
+  fill:#e85656;
+}
+
+.button button.complete svg .fill{
+  fill:#29B6F6;
+}
+
+.button button.complete svg{
+  border-radius: 11px;
+  border: 1.5px solid #29B6F6;
+  transition: background 0.2s ease;
+}
+
+.abc#completed .button button.complete svg{
+  background: #29B6F6;
+  border:0px;
+}
+
+.abc#completed .button button.complete svg .fill{
+  fill:#fff;
+}
+
+.abc:not(#completed) .button button.complete:hover svg{
+   background:#81D4FA;
+}
+
+.abc:not(#completed) .button button.complete:hover svg .fill{
+  fill:#fff;
+}
+
+div.abc#completed{
+  position: relative;
+  padding: 60px 0 0 0;
+}
+
+div.abc#completed:before{
+  content: '';
+  width: 150px;
+  height: 1px;
+  background: #d8e5e0;
+  position: absolute;
+  top:30px;
+  left: 50%;
+  margin: 0 0 0 -75px;
+}
+
+div.abc#todo:after:empty{
+  content: 'You have nothing To-Do !';
+  margin: 20px 0 0 0;
+}
+
+div.abc#completed:empty:after{
+  content: 'Studied Topics';
+}
+
+div.abc#todo:after,
+div.abc#completed:after{
+  width: 100%;
+  text-align: center;
+  display: block;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.btn{
+  background-color: #29B6F6;
+  color: #fff;
+}
+.btn:hover
+{
+  color: #fff;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Welcome to Study Group</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/static/home/css/studyGroups.css">
+  </head>
+  <body>
+    <header>
+      <form action="." method="post">
+        <input type="text" name="topic" id="item" placeholder="Enter Topic you want to study">
+      <br></br>
+
+      <input type="text" name="venue" id="venue" placeholder="Enter Venue">
+      <input type="text" name="date" id="date" placeholder="Enter Date">
+      <input type="text" name="time" id="time" placeholder="Enter Time">
+
+<center>
+      <input type="submit" name="" id="add" text="submit"/>
+    </form>
+    </center>
+
+</header>
+
+
+
+<div class="container">
+
+<div class="abc" id="todo">
+
+
+
+
+
+
+{% for object in objects %}
+
+
+<div class="card">
+      <div class="card-body">
+        <b>{{object.topic}}</b> at <b>{{object.time}}</b> on <b>{{object.date}}</b> in <b>{{object.venue}}</b> 
+        <div class="button">
+        <button class="complete">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 22" style="enable-background:new 0 0 22 22;" xml:space="preserve"> <rect y="0" class="nofill" width="22" height="22"/> <g> <path class="fill" d="M9.7,14.4L9.7,14.4c-0.2,0-0.4-0.1-0.5-0.2l-2.7-2.7c-0.3-0.3-0.3-0.8,0-1.1s0.8-0.3,1.1,0l2.1,2.1l4.8-4.8 c0.3-0.3,0.8-0.3,1.1,0s0.3,0.8,0,1.1l-5.3,5.3C10.1,14.3,9.9,14.4,9.7,14.4z"/> </g> </svg>
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+
+</div>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
